@@ -121,7 +121,7 @@ function App() {
 
   const handleAnalyze = () => {
     if (!selectedFile) {
-      alert("Selectează un fișier mai întâi");
+      alert("Please select a file first");
       return;
     }
 
@@ -161,7 +161,7 @@ function App() {
       }
 
       if (headerIndex === -1) {
-        console.error("Format CSV necunoscut");
+        console.error("Unknown CSV format");
         return;
       }
 
@@ -191,18 +191,18 @@ function App() {
       <h1>Blackbox FPV Tuner Assistant</h1>
 
       <p>
-        Încarcă un fișier Blackbox Log (.csv) pentru a primi sfaturi de tuning
+        Upload a Blackbox Log file (.csv) to receive tuning advice
       </p>
 
       <input type="file" accept=".csv" onChange={handleFileChange} />
 
-      <button onClick={handleAnalyze}>Analizează Logul</button>
+      <button onClick={handleAnalyze}>Analyze Log</button>
 
-      {selectedFile && <p>Fișier selectat: {selectedFile.name}</p>}
+      {selectedFile && <p>Selected file: {selectedFile.name}</p>}
 
       <div id="results">
         {analysisResults.length === 0
-          ? "Rezultatele analizei vor apărea aici."
+          ? "Analysis results will appear here."
           : analysisResults.map((r) => (
               <div
                 key={r.axisIndex}
@@ -212,34 +212,34 @@ function App() {
 
                 {r.totalCrossings < 3 ? (
                   <p>
-                    Date insuficiente pe axa {r.axisLabel} (doar {r.totalCrossings} manevre detectate).
+                    Insufficient data on {r.axisLabel} axis (only {r.totalCrossings} maneuvers detected).
                   </p>
                 ) : r.detected ? (
                   <p>
-                    Overshoot detectat pe axa {r.axisLabel}: {formatPercent(r.overshootRatio)}
+                    Overshoot detected on {r.axisLabel}: {formatPercent(r.overshootRatio)}
                   </p>
                 ) : (
                   <p>
-                    Tuning OK pe axa {r.axisLabel}: {formatPercent(r.overshootRatio)}
+                    P-tuning looks OK on {r.axisLabel}: {formatPercent(r.overshootRatio)}
                   </p>
                 )}
 
                 <div className="details">
-                  Detalii: {r.totalCrossings} treceri, {r.overshootEvents} overshoot-uri
+                  Details: {r.totalCrossings} crossings, {r.overshootEvents} overshoot events
                 </div>
               </div>
             ))}
       </div>
 
       <footer>
-        <p className="footer-text">Ți-a fost de folos acest tool?</p>
+        <p className="footer-text">Was this tool useful to you?</p>
         <a
           href="https://ko-fi.com/andreico"
           target="_blank"
           rel="noopener noreferrer"
           className="kofi-button"
         >
-          ☕ Susține proiectul pe Ko-fi
+          ☕ Support the project on Ko-fi
         </a>
       </footer>
     </div>

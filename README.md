@@ -1,16 +1,24 @@
-# React + Vite
+# 🚁 FPV Blackbox Tuning Assistant
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fast and completely free web application that analyzes Blackbox Log (CSV) files from FPV drones (Betaflight) and provides automated tuning advice in plain English.
 
-Currently, two official plugins are available:
+🌍 **Live Demo:** [INSERT YOUR VERCEL LINK HERE]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 About the Project
 
-## React Compiler
+This project was created to simplify the FPV drone tuning process. Instead of manually analyzing complex graphs, the app reads your logs and automatically detects tuning issues. Currently, the analysis engine focuses strictly on detecting **P-term overshoot**.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Everything runs exclusively **client-side** (in your browser). There are no backend servers, and your raw log files (CSV) are never uploaded to the internet or stored anywhere.
 
-## Expanding the ESLint configuration
+## ✨ Features (MVP)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+*   **Local Upload:** Ultra-fast parsing of `.csv` files extracted from Betaflight.
+*   **Client-Side Analysis:** Built-in mathematical algorithm that compares `rcCommand` with `gyroData` and analyzes the `axisP` reaction.
+*   **Plain English Advice:** Translates raw data into direct, actionable steps (e.g., "Decrease P-gain by 10%").
+*   **100% Privacy:** Your data never leaves your device.
+
+## 🛠️ Tech Stack
+
+*   **Frontend:** React (Next.js / Vite)
+*   **Data Processing:** JavaScript (Client-side CSV parsing)
+*   **Hosting:** Vercel

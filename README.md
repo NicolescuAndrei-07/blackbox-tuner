@@ -2,8 +2,7 @@
 
 A fast and completely free web application that analyzes Blackbox Log (CSV) files from FPV drones (Betaflight) and provides automated tuning advice in plain English.
 
-🌍 **Live Demo:** [INSERT YOUR VERCEL LINK HERE]
-
+🌍 **Live Demo:** blackbox-tuner.vercel.app
 ## 🚀 About the Project
 
 This project was created to simplify the FPV drone tuning process. Instead of manually analyzing complex graphs, the app reads your logs and automatically detects tuning issues. Currently, the analysis engine focuses strictly on detecting **P-term overshoot**.
